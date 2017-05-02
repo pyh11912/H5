@@ -1,0 +1,319 @@
+html{width:100%;height:100%;}
+body{
+	background:#ee2e56 url("../img/bodybg.jpg") no-repeat;
+	background-size:100% auto;
+	font-size:0.16rem;
+}
+div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.clearfix{zoom:1;}
+.clearfix:after{
+	content:"";
+	display: block;
+	height:0;
+	overflow:hidden;
+	visibility:hidden;
+	clear:both;
+}
+#audio{
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.music-btn{
+	display:none;
+	position:absolute;
+	z-index: 20;
+	right:0.2rem;
+	top:0.2rem;
+	width:0.395rem;
+	height:0.395rem;
+	animation:myrotate 3s linear infinite;
+}
+.icon-music{
+	width:100%;
+	height:100%;
+}
+.page{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.banner{
+	width:100%;
+}
+.desc-text{
+	width:100%;
+	margin:5% 0;
+}
+/*loading page*/
+.page0{
+	display:block;
+	background-color:#fff;
+}
+.loading{
+	position:absolute;
+	top:50%;
+	transform:translate(0,-50%);
+	width:100%;
+}
+/*第一个DIV中的样式*/
+.page1{
+	display:none;
+}
+@keyframes myrotate{
+	to{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	from{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes myrotate{
+	to{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	from{
+		transform:rotate(330deg);
+		-webkit-transform:rotate(330deg);
+	}
+}
+.cartoon-list{
+	width:100%;
+}
+.cartoon-list-item{
+	width:30%;
+	margin-left:2.5%;
+	float:left;
+	animation-delay:.8s;
+-webkit-animation-delay:.8s;
+}
+.cartoon-list-item:first-child.animated{
+	animation-duration:.6s !important;
+}
+.cartoon-list-item:nth-child(2).animated{
+	animation-duration:1s !important;
+}
+.cartoon-list-item:nth-child(3).animated{
+	animation-duration:1.4s !important;
+}
+.cartoon-list-item:nth-child(4).animated{
+	animation-duration:1.6s !important;
+}
+.cartoon-list-item:nth-child(5).animated{
+	animation-duration:2s !important;
+}
+.list-style-another .cartoon-list-item{
+	margin-left:18.5%;
+	float:left;
+}
+.list-style-another .cartoon-list-item:nth-child(2){
+	margin-left:2.5%;
+}
+.cartoon-list-item img{
+	width:100%;
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+}
+.cartoon-name{
+	display:block;
+	text-align:center;
+	color:#fff;
+	font-weight:bold;
+	margin-top:2%;
+}
+
+/*第二个DIV中的样式*/
+.page2{
+	display:none;	
+}
+.page2 .desc-text{
+	margin:2% auto 5%;
+}
+.card-list{
+	width:100%;
+	font-size:0;
+}
+.card-list-item{
+	position:relative;
+	display:inline-block;
+	width:24%;
+	height:1.08rem;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transition: all .6s ease-in-out;
+	-webkit-transition: all .6s ease-in-out;/* Safari 和 Chrome */
+	-moz-transition: all .5s; /* Firefox 4 */
+	-o-transition: all .5s; /* Opera */
+	transform-origin: 0% 50% 0;
+	-ms-transform-origin: 0% 50% 0;/* IE 9 */
+	-o-transform-origin: 0% 50% 0;/* Opera */
+	-webkit-transform-origin: 0% 50% 0;/* Safari 和 Chrome */
+	-moz-transform-origin: 0 50% 0;/* Firefox */
+
+}
+.card-list-item-front{
+	transform: translate(0, 0) rotateY(0deg);
+	-webkit-transform: translate(0,0) rotateY(0deg);
+	-moz-transform: translate(0, 0) rotateY(0deg);
+	-o-transform: translate(0, 0) rotateY(0deg);
+	-ms-transform: translate(0, 0) rotateY(0deg);
+}
+.card-list-item-back{
+	transform: translate(100%, 0) rotateY(180deg);
+	-webkit-transform: translate(100%, 0) rotateY(180deg);
+	-moz-transform: translate(100%, 0) rotateY(180deg);
+	-o-transform: translate(100%, 0) rotateY(180deg);
+	-ms-transform: translate(100%, 0) rotateY(180deg);
+}
+.card-list:first-child .card-list-item,.card-list:nth-child(3) .card-list-item{
+	margin-left:24%;
+}
+.card-list:first-child .card-list-item:nth-child(2),.card-list:nth-child(3) .card-list-item:nth-child(2){
+	margin-left:4%;
+}
+.card-list:nth-child(2){
+	text-align:center;
+	margin:5% 0;
+}
+.card-list:nth-child(2) .card-list-item{
+	margin-right:4%;
+}
+.card-list:nth-child(2) .card-list-item:last-child{
+	margin-right:0;
+}
+.card-side{
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	backface-visibility:hidden;
+	-webkit-backface-visibility:hidden;    /* Chrome 和 Safari */
+	-moz-backface-visibility:hidden;     /* Firefox */
+	-ms-backface-visibility:hidden;     /* Internet Explorer */
+}
+.card-front{
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+
+}
+.card-bg{
+	position:absolute;
+	top:0;
+	left:0;
+	width: 100%;
+}
+.card-heart{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:100%;
+	transform:translate(-50%,-50%);
+	z-index:10;
+	transition:all .6s ease-in-out;
+	-webkit-transition: all .6s ease-in-out;/* Safari 和 Chrome */
+	-moz-transition: all .5s; /* Firefox 4 */
+	-o-transition: all .5s; /* Opera */
+}
+.card-text{
+	position:absolute;
+	top:50%;
+	transform:translate(0,-50%);
+	width:100%;
+	text-align:center;
+	color:#e8c66f;
+	font-size:0.16rem;
+	line-height:0.22rem;
+}
+.card-back{
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+
+}
+/*第三个DIV中的样式*/
+.page3{
+	display:none;
+}
+.page3 .wrapper{
+	position:relative;
+}
+.person-img-box{
+	width:50%;
+	margin:0 auto;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	padding:0.06rem;
+	background-color:rgba(255,255,255,.5);   
+	border-radius:0.06rem;
+	-webkit-border-radius:0.06rem;
+	-moz-border-radius:0.06rem;
+}
+.person-img{
+	width: 100%;
+}
+.change-area{
+	position:absolute;
+	right:0;
+	bottom:0.3rem;
+	width:25%;
+	text-align:center;
+}
+.change-area p{
+	font-size:0.16rem;
+	line-height:0.24rem;
+	color:#a81032;
+}
+.refresh{
+	width:0.24rem;
+}
+.buy-ticket-btn,.view-btn{
+	width:80%;
+	display:block;
+	margin:0 auto;
+   /* background:url("../img/P3_btn_ticket.png") no-repeat;
+   background-size:100% 100%;*/
+ }
+ .view-btn{
+ 	margin:0.05rem auto;
+ }
+ .buy-ticket-btn img,.view-btn img{
+ 	width:100%;
+ }
+ .share-text{
+ 	width:100%;
+ 	text-align:center;
+ 	color:#fff;
+ 	font-size:0.14rem;
+ }
+ .hidden-area{
+ 	display:none;
+ 	position:absolute;
+ 	z-index:10;
+ 	width:100%;
+ 	top:0;
+ 	left:0;
+ 	top:0;
+ 	bottom:0;
+ 	background-color:#353434;
+ }
+ .hidden-area-intro img,.hidden-area-share img{
+ 	margin-top:10%;
+ 	width:100%;
+ }
+ .hidden-area-share{
+ 	opacity:.8;
+ 	filter:alpha(opacity=80);
+ }

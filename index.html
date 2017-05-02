@@ -1,0 +1,224 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=0">
+		<title>猛男 陪你 看电影 hh</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
+	</head>
+	<body>  
+		<div class="music-btn active">
+			<img src="img/icoin_music_on.png" class="icon-music">
+		</div>
+		<audio src="music/test.mp3"  autoplay loop id="audio">
+			<source src="music/test.mp3" type="audio/mp3">
+				Your browser does not support the audio element.
+			</audio>
+			<div class="page page0">
+				<img src="img/loading.gif" class="loading">
+			</div>
+			<div class="page page1 animated fadeInRight"> 
+				<img src="img/p1_top.png" class="banner">
+				<img src="img/p1_bar.png" class="desc-text">
+				<div class="wrapper">
+					<div class="cartoon-list clearfix" id="list1">
+						<div v-for="item in items" class="cartoon-list-item animated fadeInUp">
+							<img :src="item.imgUrl" alt="">
+							<span class="cartoon-name">{{item.name}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="cartoon-list list-style-another clearfix" id="list2">
+						<div v-for="item in items" class="cartoon-list-item animated fadeInUp">
+							<img :src="item.imgUrl" alt="">
+							<span class="cartoon-name">{{item.name}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page page2 animated fadeInRight">
+				<img src="img/p2_top.png" class="banner">
+				<img src="img/p2_bar.png" class="desc-text">
+				<div class="wrapper">
+					<div class="card-list" id="card-list1">
+						<div v-for="item in items" class="card-list-item card-list-item-front">
+							<div class="card-side card-front">
+								<img src="img/p2_card.png" class="card-bg">
+								<div class="card-text">
+									<p>小主</p>
+									<p>{{item.name}}</p>
+								</div>	  	
+							</div>
+							<img :src="item.imgUrl" class="card-side card-back">
+						</div>
+					</div>
+					<div class="card-list" id="card-list2">
+						<div v-for="item in items" class="card-list-item card-list-item-front">
+							<div class="card-side card-front">
+								<img src="img/p2_card.png" class="card-bg">
+								<div class="card-text">
+									<p>小主</p>
+									<p>{{item.name}}</p>
+								</div>	  	
+							</div>
+							<img :src="item.imgUrl" class="card-side card-back">
+						</div>
+					</div>
+					<div class="card-list" id="card-list3">
+						<div v-for="item in items" class="card-list-item card-list-item-front">
+							<div class="card-side card-front">
+								<img src="img/p2_card.png" class="card-bg">
+								<div class="card-text">
+									<p>小主</p>
+									<p>{{item.name}}</p>
+								</div>	  	
+							</div>
+							<img :src="item.imgUrl" class="card-side card-back">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page page3 animated fadeInRight">
+				<img src="img/p3_top.png" class="banner">
+				<div class="wrapper">
+					<div class="person-img-box">
+						<img src="img/11.jpg" class="person-img">
+					</div>
+					<div class="change-area">
+						<img src="img/sign_refresh.png" class="refresh">
+						<p>哀家要</p>
+						<p>换一个</p>
+					</div>
+				</div>
+				<img src="img/p3_bar.png" class="desc-text">
+				<a href="javascript:0;" class="buy-ticket-btn">
+					<img src ="img/P3_btn_ticket.png">
+				</a>
+				<a href="javscript:;" class="view-btn">
+					<img src="img/p3_btn_share.png">
+				</a>
+				<p class="share-text">分享还可能得神秘礼物哦！嘘，你懂的...</p>
+				<div class="hidden-area hidden-area-intro animated flipInX">
+					<img src="img/11.jpg">
+				</div>
+				<div class="hidden-area hidden-area-share animated zoomIn">
+					<img src="img/wxshare.png">
+				</div>
+			</div>
+			<script type="text/javascript" src="js/rem.js"></script> 
+			<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+			<script type="text/javascript" src="js/vue.min.js"></script>
+			<script type="text/javascript" src="js/data.js"></script>
+			<script type="text/javascript">
+			 //调控页面的显示
+			 function showPage(num){
+			 	$(".page").hide();
+			 	$(".page"+num).show();
+			 }
+			 $(function(){
+			 	playMusic();//控制音乐
+			 	cardRotate();//卡片旋转
+			 	areaShowHide();//弹出内容的显示和隐藏
+			 	pageTransitionShow();//页面的过度显隐
+			 	//控制上下拉出现黑条
+			 	document.querySelector('body').addEventListener('touchmove', function (ev) {
+			 		event.preventDefault();
+			 	});
+			 //横屏提示
+			 window.addEventListener("orientationchange" in window ? "orientationchange" : "resize", function() {
+			 	if (window.orientation === 180 || window.orientation === 0) { 
+			 		alert('竖屏状态！');
+			 	} 
+			 	if (window.orientation === 90 || window.orientation === -90 ){ 
+			 		alert('横屏状态！');
+			 	}  
+			 }, false); 
+        	// 创建心形
+        	function createHeartEle(){
+        		var img = document.createElement("img");
+        		img.setAttribute("src","img/p2_heart.png");
+        		img.className = "card-heart";
+        		return img;
+        	}
+         //loading页面 
+         setTimeout(function(){
+         	$(".page0").hide();
+         	$(".music-btn").show();
+         	audio.play();
+         	$(".page1").show();
+         },4000);
+         //音乐按钮
+         function playMusic(){
+         	var audio = $("#audio")[0];
+         	$('html').one('touchstart',function(){
+         		audio.play();
+         	});
+         	$(".music-btn").on('click',function(){
+         		if($(this).hasClass('active')){
+         			$(this).removeClass('active');
+         			$(".icon-music").attr('src',"img/icoin_music_off.png");
+         			audio.pause();
+         		}else{
+         			$(this).addClass('active');
+         			$(".icon-music").attr('src',"img/icoin_music_on.png");
+         			audio.play();
+         		}
+         	});
+         }
+         //页面的过度显隐
+         function pageTransitionShow(){
+         	$(".cartoon-list-item").on('click',function(){
+         		$(".page1").hide();
+         		$(".page2").show();
+         	});
+         	$(".change-area").on('click',function(){
+         		$(".page3").hide();
+         		$(".page2").show();
+         		$(".card-list-item").removeClass('card-list-item-back').addClass('card-list-item-front');
+         	})
+         }
+         
+         //卡片翻转
+         function cardRotate(){
+         	$(".card-list-item").on('click',function(){
+         		var _self = $(this);
+         		_self.hasClass('card-list-item-front') ? _self.removeClass('card-list-item-front').addClass('card-list-item-back'):_self.removeClass('card-list-item-back').addClass('card-list-item-front');
+
+         		setTimeout(function(){
+         			$(".page2").hide();
+         			$(".page3").show();
+         			$(".person-img").attr("src",	_self.children(".card-back").attr("src"))
+         		},800)
+
+         	});
+         	var timer = setInterval(function(){
+         		$(".card-front").each(function(){
+         			$(".card-heart").remove();
+         		})
+         		$(".card-front:eq("+Math.floor(Math.random()*7)+")").append(createHeartEle); 
+
+         	},800);
+         }
+         
+          //弹出内容的显示和隐藏
+          function areaShowHide(){
+          	$(".person-img").on('click',function(){
+          		$(".hidden-area-intro").show();
+          		$(".hidden-area-intro img").attr("src",$(this).attr("src"))
+          	});
+          	$(".view-btn").on('click',function(){
+          		$(".hidden-area-share").show();
+          	});
+
+          	$(".hidden-area").on('touchend',function(e){
+          		e.preventDefault();
+          		$(this).hide();
+          	})
+          }
+        })
+      </script>
+    </body>
+    </html>
