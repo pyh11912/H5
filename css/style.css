@@ -76,7 +76,7 @@ span#cnzz_stat_icon_1261854038{
 }
 /*loading page*/
 .page0{
-	display:block;
+	display:none;
 	background-color:#fff;
 }
 .loading{

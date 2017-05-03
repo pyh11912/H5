@@ -18,7 +18,7 @@
 			<source src="music/test.mp3" type="audio/mp3">
 				Your browser does not support the audio element.
 			</audio>
-			<div class="page page0 animated fadeInDown">
+			<div class="page page0">
 				<img src="tinyimg/loading.gif" class="loading">
 			</div>
 			<div class="page page1 animated fadeInRight"> 
@@ -112,9 +112,13 @@
 			</div>
 			<script  src="js/rem.js"></script> 
 			<script  src="js/jquery-3.2.1.min.js"></script>
+			<script  src="js/fastclick.js"></script>
 			<script  src="js/vue.min.js"></script>
 			<script  src="js/data.js"></script>
-			<script  >
+			<script  src="js/Tween.js"></script>
+			<script  src="js/RequestAnimationFrame.js"></script>
+			<script  src="js/tweentest.js"></script>
+			<script>
 			 //调控页面的显示
 			 function showPage(num){
 			 	$(".page").hide();
@@ -122,6 +126,8 @@
 			 }
 
 			 $(function(){
+			 	FastClick.attach(document.body);
+			 	
 			 	HeightRespensive();
 			 	landscapePortrait();
 			 	playMusic();
@@ -138,7 +144,8 @@
 			 		$(".page0").css({
 			 			"height":$height + "px",
 			 			"width":$width + "px"
-			 		})
+			 		});
+			 		$(".page0").show();
 			 		$(".hidden-area").css({
 			 			"height":$height + "px",
 			 			"width":$width + "px"
