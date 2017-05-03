@@ -1,18 +1,46 @@
-html{width:100%;height:100%;}
+html{
+	width:100%;
+	height:100%;
+}
 body{
-	background:#ee2e56 url("../img/bodybg.jpg") no-repeat;
+	background:#ee2e56 url("../tinyimg/bodybg.jpg") no-repeat;
 	background-size:100% auto;
 	font-size:0.16rem;
+	position:relative;
 }
-div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
-.clearfix{zoom:1;}
+div,a{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.clearfix{
+	zoom:1;
+}
 .clearfix:after{
 	content:"";
-	display: block;
+	display:block;
 	height:0;
 	overflow:hidden;
 	visibility:hidden;
 	clear:both;
+}
+span#cnzz_stat_icon_1261854038{
+	display:none;
+}
+.tool-tip{
+	position: absolute;
+	bottom:1rem;
+	left:20%;
+	text-align:center;
+	display:block;
+	background:rgba(0,0,0,.6);
+	width:60%;
+	padding:0.15rem 0;	
+	color:#fff;
+	font-weight:700;
+	font-size:0.16rem;
+	z-index:999;
+	border-radius:0.08rem;
+	-webkit-border-radius:0.08rem;
+	-moz-border-radius:0.08rem;
 }
 #audio{
 	opacity: 0;
@@ -34,8 +62,8 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 }
 .page{
 	width:100%;
-	height:100%;
-	position:absolute;
+	min-height:100%;
+	position:relative;
 	top:0;
 	left:0;
 }
@@ -61,26 +89,6 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 .page1{
 	display:none;
 }
-@keyframes myrotate{
-	to{
-		transform:rotate(0deg);
-		-webkit-transform:rotate(0deg);
-	}
-	from{
-		transform:rotate(360deg);
-		-webkit-transform:rotate(360deg);
-	}
-}
-@-webkit-keyframes myrotate{
-	to{
-		transform:rotate(0deg);
-		-webkit-transform:rotate(0deg);
-	}
-	from{
-		transform:rotate(330deg);
-		-webkit-transform:rotate(330deg);
-	}
-}
 .cartoon-list{
 	width:100%;
 }
@@ -89,7 +97,7 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 	margin-left:2.5%;
 	float:left;
 	animation-delay:.8s;
--webkit-animation-delay:.8s;
+	-webkit-animation-delay:.8s;
 }
 .cartoon-list-item:first-child.animated{
 	animation-duration:.6s !important;
@@ -219,10 +227,6 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 	width:100%;
 	transform:translate(-50%,-50%);
 	z-index:10;
-	transition:all .6s ease-in-out;
-	-webkit-transition: all .6s ease-in-out;/* Safari 和 Chrome */
-	-moz-transition: all .5s; /* Firefox 4 */
-	-o-transition: all .5s; /* Opera */
 }
 .card-text{
 	position:absolute;
@@ -283,8 +287,6 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 	width:80%;
 	display:block;
 	margin:0 auto;
-   /* background:url("../img/P3_btn_ticket.png") no-repeat;
-   background-size:100% 100%;*/
  }
  .view-btn{
  	margin:0.05rem auto;
@@ -302,7 +304,6 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
  	display:none;
  	position:absolute;
  	z-index:10;
- 	width:100%;
  	top:0;
  	left:0;
  	top:0;
@@ -317,3 +318,23 @@ div,a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
  	opacity:.8;
  	filter:alpha(opacity=80);
  }
+ @keyframes myrotate{
+	to{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	from{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes myrotate{
+	to{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	from{
+		transform:rotate(330deg);
+		-webkit-transform:rotate(330deg);
+	}
+}
